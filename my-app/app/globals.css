@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card: #ffffff;
+  --muted: #f4f4f5;
+  --border: rgba(24, 24, 27, 0.12);
+  --accent: #b48a5a; /* warm gold */
+  --accent-2: #e7d4c0; /* soft champagne */
 }
 
 @theme inline {
@@ -16,6 +21,9 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --card: rgba(255, 255, 255, 0.04);
+    --muted: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.12);
   }
 }
 
@@ -23,4 +31,35 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* A lightweight “wedding card” theme without extra deps */
+html {
+  scroll-behavior: smooth;
+}
+
+.wedding-bg {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, color-mix(in oklab, var(--accent-2) 55%, transparent), transparent 70%),
+    radial-gradient(900px 500px at 95% 10%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 60%),
+    linear-gradient(180deg, color-mix(in oklab, var(--muted) 70%, transparent), transparent 60%);
+}
+
+.wedding-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.03),
+    0 24px 60px rgba(0, 0, 0, 0.08);
+}
+
+.wedding-accent {
+  color: var(--accent);
+}
+
+.wedding-ring {
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--muted) 75%, transparent);
 }
