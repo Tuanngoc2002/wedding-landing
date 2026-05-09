@@ -1,49 +1,72 @@
+import { Dancing_Script } from "next/font/google";
+import InvitationShell from "./components/InvitationShell";
+import Reveal from "./components/Reveal";
+
+const weddingNameFont = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 wedding-bg">
-      <header className="sticky top-0 z-20 border-b border-black/[.06] bg-white/70 backdrop-blur dark:border-white/[.10] dark:bg-black/50">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
-          <a
-            href="#top"
-            className="text-sm font-semibold tracking-wide text-zinc-900 dark:text-zinc-50"
-          >
-            Tuấn Ngọc • Phương Anh
-          </a>
-          <nav className="hidden items-center gap-5 text-sm text-zinc-700 dark:text-zinc-300 sm:flex">
-            <a className="hover:text-zinc-950 dark:hover:text-white" href="#story">
-              Love story
+    <InvitationShell
+      groomName="Nguyễn Hữu Tuấn Ngọc"
+      brideName="Nguyễn Phương Anh"
+      nameFontClassName={weddingNameFont.className}
+      musicSrc="/50 Năm Về Sau.mp3"
+      musicTitle="50 Năm Về Sau"
+    >
+      <div className="flex flex-col flex-1 wedding-bg">
+        <header className="sticky top-0 z-20 border-b border-black/[.06] bg-white/70 backdrop-blur dark:border-white/[.10] dark:bg-black/50">
+          <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
+            <a
+              href="#top"
+              className="text-sm font-semibold tracking-wide text-zinc-900 dark:text-zinc-50"
+            >
+              Tuấn Ngọc • Phương Anh
             </a>
-            <a className="hover:text-zinc-950 dark:hover:text-white" href="#album">
-              Album
+            <nav className="hidden items-center gap-5 text-sm text-zinc-700 dark:text-zinc-300 sm:flex">
+              <a className="hover:text-zinc-950 dark:hover:text-white" href="#story">
+                Love story
+              </a>
+              <a className="hover:text-zinc-950 dark:hover:text-white" href="#album">
+                Album
+              </a>
+              <a className="hover:text-zinc-950 dark:hover:text-white" href="#events">
+                Sự kiện
+              </a>
+              <a className="hover:text-zinc-950 dark:hover:text-white" href="#rsvp">
+                RSVP
+              </a>
+              <a className="hover:text-zinc-950 dark:hover:text-white" href="#gift">
+                Mừng cưới
+              </a>
+            </nav>
+            <a
+              href="#rsvp"
+              className="rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+            >
+              Bạn sẽ đến chứ?
             </a>
-            <a className="hover:text-zinc-950 dark:hover:text-white" href="#events">
-              Sự kiện
-            </a>
-            <a className="hover:text-zinc-950 dark:hover:text-white" href="#rsvp">
-              RSVP
-            </a>
-            <a className="hover:text-zinc-950 dark:hover:text-white" href="#gift">
-              Mừng cưới
-            </a>
-          </nav>
-          <a
-            href="#rsvp"
-            className="rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
-          >
-            Bạn sẽ đến chứ?
-          </a>
-        </div>
-      </header>
+          </div>
+        </header>
 
-      <main id="top" className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6 sm:py-14">
-        {/* Hero */}
-        <section className="wedding-card overflow-hidden">
+        <main
+          id="top"
+          className="mx-auto w-full max-w-5xl flex-1 px-4 py-10 sm:px-6 sm:py-14"
+        >
+          {/* Hero */}
+          <Reveal delayMs={0}>
+            <section className="wedding-card overflow-hidden">
           <div className="grid gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-10">
             <div className="flex flex-col justify-center">
               <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
                 SAVE THE DATE
               </p>
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.1] tracking-tight text-zinc-950 dark:text-white sm:text-5xl">
+              <h1
+                className={`mt-4 text-5xl font-bold leading-[1.05] tracking-normal text-zinc-950 dark:text-white sm:text-6xl ${weddingNameFont.className}`}
+              >
                 <span className="block">Nguyễn Hữu Tuấn Ngọc</span>
                 <span className="mt-1 block wedding-accent">&</span>
                 <span className="block">Nguyễn Phương Anh</span>
@@ -92,15 +115,19 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+            </section>
+          </Reveal>
 
         {/* Bride / Groom */}
-        <section className="mt-10 grid gap-6 lg:grid-cols-2">
+        <Reveal delayMs={60}>
+          <section className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="wedding-card p-6 sm:p-8">
             <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
               CHÚ RỂ
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white">
+            <h2
+              className={`mt-3 text-4xl font-bold tracking-normal text-zinc-950 dark:text-white ${weddingNameFont.className}`}
+            >
               Nguyễn Hữu Tuấn Ngọc
             </h2>
             <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
@@ -116,7 +143,9 @@ export default function Home() {
             <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
               CÔ DÂU
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white">
+            <h2
+              className={`mt-3 text-4xl font-bold tracking-normal text-zinc-950 dark:text-white ${weddingNameFont.className}`}
+            >
               Nguyễn Phương Anh
             </h2>
             <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
@@ -127,10 +156,12 @@ export default function Home() {
               Gợi ý: đặt ảnh chân dung vuông 1:1 tại đây.
             </div>
           </div>
-        </section>
+          </section>
+        </Reveal>
 
         {/* Story */}
-        <section id="story" className="mt-10 wedding-card p-6 sm:p-10">
+        <Reveal delayMs={90}>
+          <section id="story" className="mt-10 wedding-card p-6 sm:p-10">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
@@ -178,10 +209,12 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </section>
+          </section>
+        </Reveal>
 
         {/* Album */}
-        <section id="album" className="mt-10 wedding-card p-6 sm:p-10">
+        <Reveal delayMs={110}>
+          <section id="album" className="mt-10 wedding-card p-6 sm:p-10">
           <div className="flex items-end justify-between gap-4">
             <div>
               <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
@@ -213,10 +246,12 @@ export default function Home() {
               Ảnh 16:9
             </div>
           </div>
-        </section>
+          </section>
+        </Reveal>
 
         {/* Events */}
-        <section id="events" className="mt-10 wedding-card p-6 sm:p-10">
+        <Reveal delayMs={130}>
+          <section id="events" className="mt-10 wedding-card p-6 sm:p-10">
           <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
             SỰ KIỆN CƯỚI
           </p>
@@ -280,10 +315,12 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </section>
+          </section>
+        </Reveal>
 
         {/* Invitation */}
-        <section className="mt-10 wedding-card p-6 sm:p-10">
+        <Reveal delayMs={150}>
+          <section className="mt-10 wedding-card p-6 sm:p-10">
           <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
             THIỆP MỜI
           </p>
@@ -331,10 +368,12 @@ export default function Home() {
               Ảnh thiệp ngang (tỉ lệ 16:9) — thay bằng ảnh thật / QR / bản đồ.
             </div>
           </div>
-        </section>
+          </section>
+        </Reveal>
 
         {/* RSVP */}
-        <section id="rsvp" className="mt-10 wedding-card p-6 sm:p-10">
+        <Reveal delayMs={170}>
+          <section id="rsvp" className="mt-10 wedding-card p-6 sm:p-10">
           <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
             RSVP
           </p>
@@ -394,10 +433,12 @@ export default function Home() {
               </ul>
             </div>
           </div>
-        </section>
+          </section>
+        </Reveal>
 
         {/* Gift */}
-        <section id="gift" className="mt-10 wedding-card p-6 sm:p-10">
+        <Reveal delayMs={190}>
+          <section id="gift" className="mt-10 wedding-card p-6 sm:p-10">
           <p className="text-xs font-semibold tracking-[0.32em] text-zinc-600 dark:text-zinc-300">
             HỘP MỪNG CƯỚI
           </p>
@@ -461,25 +502,27 @@ export default function Home() {
           <p className="mt-8 text-sm text-zinc-600 dark:text-zinc-300">
             Chân thành cảm ơn sự quan tâm và lời chúc phúc của bạn!
           </p>
-        </section>
-      </main>
+          </section>
+        </Reveal>
+        </main>
 
-      <footer className="border-t border-black/[.06] bg-white/60 py-10 text-sm text-zinc-600 backdrop-blur dark:border-white/[.10] dark:bg-black/40 dark:text-zinc-300">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-4 sm:px-6">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="font-medium text-zinc-900 dark:text-zinc-50">
-              Tuấn Ngọc — Wedding landing
+        <footer className="border-t border-black/[.06] bg-white/60 py-10 text-sm text-zinc-600 backdrop-blur dark:border-white/[.10] dark:bg-black/40 dark:text-zinc-300">
+          <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-4 sm:px-6">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="font-medium text-zinc-900 dark:text-zinc-50">
+                Tuấn Ngọc — Wedding landing
+              </p>
+              <a className="hover:text-zinc-950 dark:hover:text-white" href="#top">
+                Trở về đầu trang
+              </a>
+            </div>
+            <p>
+              Nếu bạn gửi cho mình thông tin thật (tên, ngày, địa điểm, album ảnh, tài
+              khoản/QR), mình sẽ thay toàn bộ placeholder này trong 5–10 phút.
             </p>
-            <a className="hover:text-zinc-950 dark:hover:text-white" href="#top">
-              Trở về đầu trang
-            </a>
           </div>
-          <p>
-            Nếu bạn gửi cho mình thông tin thật (tên, ngày, địa điểm, album ảnh, tài
-            khoản/QR), mình sẽ thay toàn bộ placeholder này trong 5–10 phút.
-          </p>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </InvitationShell>
   );
 }
