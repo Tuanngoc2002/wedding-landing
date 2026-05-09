@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { CSSProperties, ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -14,7 +14,8 @@ export default function Reveal({ children, delayMs = 0, className }: RevealProps
 
   const style = useMemo(() => {
     const key = "--reveal-delay" as const;
-    return { [key]: `${delayMs}ms` };
+    return { [key]: `${delayMs}ms` } as CSSProperties &
+      Record<"--reveal-delay", string>;
   }, [delayMs]);
 
   useEffect(() => {
